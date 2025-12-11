@@ -1,0 +1,138 @@
+[server]
+server_id = 001
+http_port = 3000
+database_driver = "mongodb"
+rate_limit_minutes = 10
+rate_limit_requests = 200
+
+body_limit = "10kb"
+
+# file paths
+static_path = "public"
+views_path = "views"
+views_default_layout = "default_layout.hbs"
+views_layouts_path = "views/layouts"
+views_partials_path = "views/partials"
+
+# platform
+platform_roles = ["Guest", "client", "coach", "admin"]
+platform_author_name = "miketerry.org"
+platform_author_url = "https://miketerry.org"
+platform_support_email = "support@miketerry.org"
+platform_support_url = "https://local.mercury/support"
+platform_copyright = 2025
+
+# session redis
+redis_host = "127.0.0.1"
+redis_port = 6379
+redis_password = ""                          # optional
+redis_prefix = "sess:"                       # optional
+
+# logger
+log_type=mongodb
+log_table_name = "logs"
+log_expiration_days = 30
+log_capped = false
+log_max_size = 10
+log_max_docs = 10000
+
+# mail.mail]
+mail_transport = "file"
+mail_template_path = "mail/templates"
+mail_file_output_path= "mail/file_output"
+
+###############################################################
+# Tenants
+###############################################################
+
+[[tenants]]
+tenant_id = 001
+server_id = 001
+environment = "development"
+site_host = "local.dev"
+site_theme = "lightMode"
+site_title = "(development) Life Coaching"
+site_slogan = "Red Hot Life Coaching"
+site_owner = "Mercury Life Coaching, LLC"
+site_fullname = "Donald Duck"
+site_email = "donald.duck@mercurylifecoaching.com"
+
+[[tenants]]
+tenant_id = 002
+server_id=001
+environment = "testing"
+site_host = "local.test"
+site_theme = "darkMode"
+site_title = "(Test) Life Coaching"
+site_slogan = "Quality, comprehensive life coaching for everyone"
+site_owner = "Two Roads Movement, LLC"
+site_fullname = "Dylan Terry"
+site_email = "dylan.terry@tworoadsmovement.com"
+
+[tenants.views]
+views_path = "tenants/test/views"
+layouts_path = "tenants/test/views/layouts"
+partials_path = "tenants/test/views/partials"
+default_layout = "test_default_layout.hbs"
+
+[tenants.assets]
+logo_path = "assets/logos/test_logo.png"
+mail_templates_path = "tenants/test/mail_templates"
+
+
+[[tenants]]
+tenant_id = 003
+name = "Staging"
+environment = "staging"
+server_node = 1
+domain = "local.stage"
+database_uri = "mongodb://localhost:27017/stage"
+theme_mode = "lightMode"
+
+[tenants.site]
+title = "Two Roads Movement"
+slogan = "Quality, comprehensive life coaching for everyone"
+tenant_owner = "Two Roads Movement, LLC"
+coach_fullname = "Dylan Terry"
+coach_email = "dylan.terry@tworoadsmovement.com"
+support_email = "support@tworoadsmovement.com"
+support_url = "https://www.tworoadsmovement.com/support"
+
+[tenants.views]
+views_path = "tenants/stage/views"
+layouts_path = "tenants/stage/views/layouts"
+partials_path = "tenants/stage/views/partials"
+default_layout = "stage_default_layout.hbs"
+
+[tenants.assets]
+logo_path = "assets/logos/stage_logo.png"
+mail_templates_path = "tenants/stage/mail_templates"
+
+
+[[tenants]]
+tenant_id = 004
+name = "Production"
+environment = "production"
+server_node = 1
+domain = "local.prod"
+database_uri = "mongodb://localhost:27017/prod"
+theme_mode = "darkMode"
+
+[tenants.site]
+title = "Two Roads Movement"
+slogan = "Quality, comprehensive life coaching for everyone"
+tenant_owner = "Two Roads Movement, LLC"
+coach_fullname = "Dylan Terry"
+coach_email = "dylan.terry@tworoadsmovement.com"
+support_email = "support@tworoadsmovement.com"
+support_url = "https://www.tworoadsmovement.com/support"
+
+[tenants.views]
+views_path = "tenants/prod/views"
+layouts_path = "tenants/prod/views/layouts"
+partials_path = "tenants/prod/views/partials"
+default_layout = "prod_default_layout.hbs"
+
+[tenants.assets]
+logo_path = "assets/logos/prod_logo.png"
+mail_templates_path = "tenants/prod/mail_templates"

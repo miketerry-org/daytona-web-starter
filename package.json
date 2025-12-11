@@ -1,0 +1,28 @@
+{
+  "type": "module",
+  "name": "daytona-web-starter",
+  "version": "1.0.0",
+  "description": "Web application starter using Daytona-MVC",
+"main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "starter",
+    "web",
+    "application",
+    "for",
+    "daytona",
+    "mvc"
+  ],
+  "homepage": "https://github.com/miketerry-org/daytona-web-starter#readme",
+  "bugs": {
+    "url": "https://github.com/miketerry-org/daytona-web-starter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miketerry-org/daytona-web-starter.git"
+  },
+  "license": "MIT",
+  "author": "Mike Terry"
+}
