@@ -3,8 +3,9 @@
   "name": "daytona-web-starter",
   "version": "1.0.0",
   "description": "Web application starter using Daytona-MVC",
-"main": "index.js",
+  "main": "index.js",
   "scripts": {
+    "seeder": "NODE_ENV=development nodemon --watch . seeder.js",
     "test": "jest"
   },
   "keywords": [
@@ -24,5 +25,8 @@
     "url": "git+https://github.com/miketerry-org/daytona-web-starter.git"
   },
   "license": "MIT",
-  "author": "Mike Terry"
+  "author": "Mike Terry",
+  "dependencies": {
+    "toml": "^3.0.0"
+  }
 }
